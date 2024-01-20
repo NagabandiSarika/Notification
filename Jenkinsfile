@@ -23,7 +23,7 @@ pipeline {
                   script {
                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: '024579634030', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
     sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 024579634030.dkr.ecr.ap-south-1.amazonaws.com/notification'
-     sh '024579634030.dkr.ecr.ap-south-1.amazonaws.com/notification'
+     sh 'docker push 024579634030.dkr.ecr.ap-south-1.amazonaws.com/notification'
 }
 
 }
